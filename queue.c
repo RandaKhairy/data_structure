@@ -9,7 +9,7 @@
 
 uint8 expressionLength(char* expression)
 {
-	unsigned char length = 0;
+	uint8 length = 0;
 	while(expression[length] != '\0')
 	{
 		length++;
@@ -17,17 +17,17 @@ uint8 expressionLength(char* expression)
 	return length;
 }
 
-void createQueue(ST_queueInfo* info, uint16 maxSize)
+void createQueue(ST_queueInfo* info, uint32 maxSize)
 {
 	info->first = -1 ;
 	info->last  = -1 ;
 	info->size  = 0 ;
 	info->maxSize = maxSize;
-	sint16* qu = (sint16*) malloc(sizeof(uint16)*maxSize);
+	sint32* qu = (sint32*) malloc(sizeof(sint32)*maxSize);
 	info->queuePtr = qu;
 }
 
-void enqueue(ST_queueInfo* info, sint16 data)
+void enqueue(ST_queueInfo* info, sint32 data)
 {
 	if( (info->size) != (info->maxSize) )	/*check if the queue is full*/
 		{
@@ -41,7 +41,7 @@ void enqueue(ST_queueInfo* info, sint16 data)
 		}
 }
 
-void dequeue(ST_queueInfo* info, sint16* data)
+void dequeue(ST_queueInfo* info, sint32* data)
 {
 		if( ( (info->first) != (info->last) ) ||  ( (info->size) != 0 )    )		/*check if the queue is empty*/
 		{

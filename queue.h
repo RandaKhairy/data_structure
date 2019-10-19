@@ -27,11 +27,11 @@ typedef signed long sint64;
 
 typedef struct
 {
-	sint8 first;
-	sint8 last;
-	uint16 size;
-	uint16 maxSize;
-	sint16* queuePtr;
+	sint32 first;
+	sint32 last;
+	uint32 size;
+	uint32 maxSize;
+	sint32* queuePtr;
 }ST_queueInfo;
 
 
@@ -42,14 +42,14 @@ typedef struct
  * Description: function that creates a new queue and initialize its top value with -1, size with the input size
  * and allocate a new location in the heap and store it address in the queuePtr
  * */
-extern void createQueue(ST_queueInfo* info, uint16 maxSize);
+extern void createQueue(ST_queueInfo* info, uint32 maxSize);
 /*
  * Function: enqueue
  * arguments: info => pointer to ST_queueInfo struct that holds the queue informations
  * 			  data => the data to be Enqueued into the queue
  * Description: function that add new data in an existing queue and then increment the top value to the next empty place.
  */
-extern void enqueue(ST_queueInfo* info, sint16 data);
+extern void enqueue(ST_queueInfo* info, sint32 data);
 /*
  * Function: dequeue
  * arguments: info => pointer to ST_queueInfo struct that holds the queue informations
@@ -57,7 +57,7 @@ extern void enqueue(ST_queueInfo* info, sint16 data);
  * Description: function that return the First data Enqueued into the queue,
  * then decrement the top value.
  */
-extern void dequeue(ST_queueInfo* info, sint16* data);
+extern void dequeue(ST_queueInfo* info, sint32* data);
 extern uint8 expressionLength(char* expression);
 /*
  * Function: queue_isEmpty
