@@ -21,7 +21,8 @@ int main(void)
 	ST_node* node_list2_head = head_list_2->head;
 
 	ST_node* location;
-	ST_node* Reversed;
+	ST_node* Reversed_1;
+	ST_node* Reversed_2;
 
 	insertToList(&node_list1_head,0,5);
 	insertToList(&node_list1_head,1,4);
@@ -46,7 +47,11 @@ int main(void)
 
 	location = searchIntoList(&node_list2_head,3);
 	printf("\n");
-	printf("%d",location->data);
+
+	if(location != NULL)
+	{
+		printf("%d",location->data);
+	}
 
 	sortList(&node_list1_head);
 
@@ -54,10 +59,14 @@ int main(void)
 	Print_list(node_list1_head);
 	printf("\n");
 
-	Reversed = reverseList(&node_list1_head);
+	Reversed_1 = reverseList(&node_list1_head);
 
-	Print_list(Reversed);
+	Print_list(Reversed_1);
+	printf("\n");
 
+	Reversed_2 = reverseList(&node_list2_head);
+
+	Print_list(Reversed_2);
 
 	return 0;
 }

@@ -13,6 +13,8 @@
  * Arguments : Pointer to pointer to list structure
  *
  * Description : create head pointer to list and initialized it to NULL
+ *
+ * Author : Mariam Ahmed
  ********************************************************************************/
 void createList(ST_list** head)
 {
@@ -25,6 +27,8 @@ void createList(ST_list** head)
  * Arguments : Pointer to pointer to node, position of node, data
  *
  * Description : insert data required to list chosen using list head pointer
+ *
+ *  Author : Mariam Ahmed
  ********************************************************************************/
 void insertToList(ST_node** listHead, unsigned char position, int data)
 {
@@ -88,6 +92,8 @@ void insertToList(ST_node** listHead, unsigned char position, int data)
  * Arguments : Pointer to node
  *
  * Description : print list data using head pointer to first node in the list
+ *
+ *  Author : Mariam Ahmed
  ********************************************************************************/
 void Print_list(struct ST_node* listHead)
 {
@@ -106,6 +112,8 @@ void Print_list(struct ST_node* listHead)
  * Arguments : Pointer to node
  *
  * Description : get length of list using head pointer to first node in the list
+ *
+ *  Author : Mariam Ahmed
  ********************************************************************************/
 unsigned char list_length(ST_node* listHead)
 {
@@ -125,6 +133,8 @@ unsigned char list_length(ST_node* listHead)
  * Arguments : Pointer to pointer to node, data
  *
  * Description : delete node according to data required
+ *
+ *  Author : Mahmoud Khaled
  ********************************************************************************/
 void deleteFromList(ST_node**  listHead,int Req_Data)
 {
@@ -178,6 +188,8 @@ void deleteFromList(ST_node**  listHead,int Req_Data)
  * Arguments : Pointer to pointer to node, data
  *
  * Description : search for the data required and return its node
+ *
+ *  Author : Mahmoud Khaled
  ********************************************************************************/
 ST_node* searchIntoList(ST_node** listHead,int Req_Data)
 {
@@ -223,6 +235,8 @@ ST_node* searchIntoList(ST_node** listHead,int Req_Data)
  * Arguments : Pointer to pointer to node
  *
  * Description : sort list in ascending order
+ *
+ *  Author : Mahmoud Khaled
  ********************************************************************************/
 void sortList(ST_node** listHead)
 {
@@ -248,12 +262,19 @@ void sortList(ST_node** listHead)
  * Arguments : Pointer to pointer to node
  *
  * Description : Reverse list and return pointer to the reversed list
+ *
+ *  Author : Omar Sharawy
  ********************************************************************************/
 ST_node* reverseList(ST_node** listHead)
 {
-    if ((*listHead) == NULL || (*listHead)->next == NULL)
+    if ((*listHead) == NULL)
     {
         return (*listHead);
+    }
+
+    if ((*listHead)->next == NULL)
+    {
+            return (*listHead);
     }
 
     ST_node* original_list = (*listHead)->next;
