@@ -10,22 +10,22 @@
 int main(void)
 {
 	//uint8 i = 0;
-		uint16 data;
+	    sint16 data;
 		uint16 assign;
         char* exp = "[(1+2)+[3]]{";
 		
 		ST_queueInfo numbers;
-		ST_queueInfo calc;
+		ST_queueInfo operators;
 
 		uint16 queueSize = expressionLength(exp);
 
 
 		createQueue(&numbers, queueSize);
-		createQueue(&calc, queueSize);
+		createQueue(&operators, queueSize);
 	
 	uint8 l=0;
 
-	printf("Numbers = ");
+
 
 	while(l<=queueSize)
 		{
@@ -36,31 +36,32 @@ int main(void)
 			l++;
 		}
 
-
-
+	queue_isEmpty(&numbers);
+	printf("numbers = ");
 		while( ( numbers.size) != 0 )
 				{
 					dequeue(&numbers, &data);
 					printf("%c ",data);
 				}
 
+		queue_isEmpty(&numbers);
 
 	printf("\n");
-	printf("calculations = ");
+	printf("operators = ");
 	l=0;
 		while(l<=queueSize)
 				{
 					if ( (exp[l] == '+') || (exp[l] == '-') || (exp[l] == '/') || (exp[l] == '*') )
 					{
-						enqueue(&calc, exp[l]);
+						enqueue(&operators, exp[l]);
 					}
 					l++;
 				}
 
 
-				while( ( calc.size) != 0 )
+				while( ( operators.size) != 0 )
 						{
-							dequeue(&calc, &assign);
+							dequeue(&operators, &assign);
 							printf("%c ",assign);
 						}
 

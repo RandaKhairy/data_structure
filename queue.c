@@ -23,11 +23,11 @@ void createQueue(ST_queueInfo* info, uint16 maxSize)
 	info->last  = -1 ;
 	info->size  = 0 ;
 	info->maxSize = maxSize;
-	uint16* qu = (uint16*) malloc(sizeof(uint16)*maxSize);
+	sint16* qu = (sint16*) malloc(sizeof(uint16)*maxSize);
 	info->queuePtr = qu;
 }
 
-void enqueue(ST_queueInfo* info, uint16 data)
+void enqueue(ST_queueInfo* info, sint16 data)
 {
 	if( (info->size) != (info->maxSize) )	/*check if the queue is full*/
 		{
@@ -41,7 +41,7 @@ void enqueue(ST_queueInfo* info, uint16 data)
 		}
 }
 
-void dequeue(ST_queueInfo* info, uint16* data)
+void dequeue(ST_queueInfo* info, sint16* data)
 {
 		if( ( (info->first) != (info->last) ) ||  ( (info->size) != 0 )    )		/*check if the queue is empty*/
 		{
@@ -55,4 +55,20 @@ void dequeue(ST_queueInfo* info, uint16* data)
 			info->last  =-1;
 		}
 
+}
+
+
+
+uint8 queue_isEmpty(ST_queueInfo* info)
+{
+	if( (info->size) != 0 )
+		{
+		printf("\nqueue is not Empty\n");
+          return 1;
+		}
+		else
+		{
+			printf("\nqueue is Empty\n");
+			return 0;
+		}
 }

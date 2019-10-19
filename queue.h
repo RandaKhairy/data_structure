@@ -31,7 +31,7 @@ typedef struct
 	sint8 last;
 	uint16 size;
 	uint16 maxSize;
-	uint16* queuePtr;
+	sint16* queuePtr;
 }ST_queueInfo;
 
 
@@ -49,7 +49,7 @@ extern void createQueue(ST_queueInfo* info, uint16 maxSize);
  * 			  data => the data to be Enqueued into the queue
  * Description: function that add new data in an existing queue and then increment the top value to the next empty place.
  */
-extern void enqueue(ST_queueInfo* info, uint16 data);
+extern void enqueue(ST_queueInfo* info, sint16 data);
 /*
  * Function: dequeue
  * arguments: info => pointer to ST_queueInfo struct that holds the queue informations
@@ -57,8 +57,13 @@ extern void enqueue(ST_queueInfo* info, uint16 data);
  * Description: function that return the First data Enqueued into the queue,
  * then decrement the top value.
  */
-extern void dequeue(ST_queueInfo* info, uint16* data);
+extern void dequeue(ST_queueInfo* info, sint16* data);
 extern uint8 expressionLength(char* expression);
-
+/*
+ * Function: queue_isEmpty
+ * arguments: info => pointer to ST_queueInfo* info.
+ * Description: function that returns if the queue is empty or not.
+ */
+extern uint8 queue_isEmpty(ST_queueInfo* info);
 
 #endif /* QUEUE_H_ */
