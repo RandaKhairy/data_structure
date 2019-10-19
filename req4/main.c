@@ -3,7 +3,7 @@
 
 int main()
 {
-    long long x = evaluate("(9/4)+(2*2)"); //sould be 8
+    long long x = evaluate("(5/4)+(2*2)"); //sould be 8
 
     printf("\n%d",x);
     return 0;
